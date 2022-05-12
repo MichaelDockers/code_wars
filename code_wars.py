@@ -10,14 +10,18 @@ def narcissistic(num: int) -> bool:
             num //= 10
             i += 1
         return i
+    
+    
+    def get_sum(num: int) -> int:
+        n = 0
+        st = base(num)
+        while num > 0:
+            n = n + (num % 10) ** st
+            num = num // 10
+        return n
 
-    n = 0
-    st = base(num)
-    while num > 0:
-        n = n + (num % 10) ** st
-        num = num // 10
-    print(num, n)
-    return num == n
+        
+    return num == get_sum(num)
 
 
-print(narcissistic(1652))
+print(narcissistic(7))
