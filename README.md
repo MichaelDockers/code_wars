@@ -1,0 +1,1 @@
+## funcs to codewars.com
