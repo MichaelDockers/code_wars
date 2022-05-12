@@ -3,4 +3,5 @@ def spin_words(sentence: str) -> str:
     return ' '.join(reversed_sentence)
 
 
-print(spin_words('Hey teachers leave me alone'))
+text = 'Hey teachers leave me alone'
+print(spin_words(text))
