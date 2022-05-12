@@ -19,9 +19,12 @@ def narcissistic(num: int) -> bool:
             n = n + (num % 10) ** st
             num = num // 10
         return n
-
-        
     return num == get_sum(num)
 
 
-print(narcissistic(7))
+def to_jaden_case(string: str) -> str:
+    return ' '.join([x.capitalize() for x in string.split()])
+
+
+
+print(to_jaden_case('How can mirrors be real if our eyes aren"t real'))
