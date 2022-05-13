@@ -27,11 +27,25 @@ def to_jaden_case(string: str) -> str:
 
 
 def last_digit(base: int, degree: int) -> int:
-    powed = 1
-    bin_degree = list(int(x) for x in format(degree, 'b')[::-1])
-    for key, item in enumerate(bin_degree):
-        powed = powed * (base ** ((2 ** key) * item))
-    return powed % 10
+    
+    if base == 0 and degree == 0:
+        return 1
+        
+    last_base_digit = base % 10
+    if last_base_digit in [0, 1, 5, 6]:
+        return last_base_digit
+    else:
+        if degree % 4 == 0:
+            if base % 2 == 0:
+                return 6
+            else:
+                return 1
+        elif degree % 4 == 1:
+            return last_base_digit
+        elif degree % 4 == 2:
+            return (base ** 2) % 10
+        elif degree % 4 == 3:
+            return (base ** 3) % 10
 
 
-print(last_digit(21, 13))
+print(last_digit(0, 0))
