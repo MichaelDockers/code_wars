@@ -89,7 +89,11 @@ def create_phone_number(n: list) -> str:
     return f'({row_n[0: 3]}) {row_n[3: 6]}-{row_n[6:]}'
 
 
-print(create_phone_number([1, 2, 3, 4, 5, 6, 7, 8, 9, 0]))
+def odd_sort(n: list) -> list:
+    odd_list = sorted(list(filter(lambda x: x % 2 == 1, n)), reverse=True)
+    return [x if x % 2 == 0 else (odd_list).pop() for x in n]
+
+print(odd_sort([5, 2, 9, 4, 3]))
 
 
 
