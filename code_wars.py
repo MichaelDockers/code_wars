@@ -76,7 +76,15 @@ def to_camel_case(text: str) -> str:
         return('')
 
 
-print(to_camel_case('The-pippi_was_pippi'))
+def from_camel_case(text: str) -> str:
+    if text not in ['']:
+        normal_text = ''.join([' ' + x if x[0].isupper() else x for x in text]).strip()
+        return normal_text
+    else:
+        return ''
+
+
+print(from_camel_case('thePippiWasWippi'))
 
 
 
