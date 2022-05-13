@@ -43,9 +43,9 @@ def last_digit(base: int, degree: int) -> int:
         elif degree % 4 == 1:
             return last_base_digit
         elif degree % 4 == 2:
-            return (base ** 2) % 10
+            return (last_base_digit ** 2) % 10
         elif degree % 4 == 3:
-            return (base ** 3) % 10
+            return (last_base_digit ** 3) % 10
 
 
 def square_number(num: int) -> bool:
@@ -78,13 +78,18 @@ def to_camel_case(text: str) -> str:
 
 def from_camel_case(text: str) -> str:
     if text not in ['']:
-        normal_text = ''.join([' ' + x if x[0].isupper() else x for x in text]).strip()
+        normal_text = ''.join([' ' + x if x.isupper() else x for x in text]).strip()
         return normal_text
     else:
         return ''
 
 
-print(from_camel_case('thePippiWasWippi'))
+def create_phone_number(n: list) -> str:
+    row_n = ''.join(map(str, n))
+    return f'({row_n[0: 3]}) {row_n[3: 6]}-{row_n[6:]}'
+
+
+print(create_phone_number([1, 2, 3, 4, 5, 6, 7, 8, 9, 0]))
 
 
 
