@@ -28,9 +28,9 @@ def to_jaden_case(string: str) -> str:
 
 def last_digit(base: int, degree: int) -> int:
     
-    if base == 0 and degree == 0:
+    if degree == 0:
         return 1
-        
+
     last_base_digit = base % 10
     if last_base_digit in [0, 1, 5, 6]:
         return last_base_digit
@@ -48,4 +48,10 @@ def last_digit(base: int, degree: int) -> int:
             return (base ** 3) % 10
 
 
-print(last_digit(0, 0))
+def square_number(num: int) -> bool:
+    if num >= 0:
+        return (num ** 0.5) == int(num ** 0.5)
+    else:
+        return False
+
+print(square_number(16))
