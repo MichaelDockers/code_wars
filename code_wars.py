@@ -1,3 +1,6 @@
+from cgi import print_exception
+
+
 def spin_words(sentence: str) -> str:
     reversed_sentence = [x[::-1] if len(x) >= 5 else x for x in sentence.split()]
     return ' '.join(reversed_sentence)
@@ -93,7 +96,24 @@ def odd_sort(n: list) -> list:
     odd_list = sorted(list(filter(lambda x: x % 2 == 1, n)), reverse=True)
     return [x if x % 2 == 0 else (odd_list).pop() for x in n]
 
-print(odd_sort([5, 2, 9, 4, 3]))
+
+def expanded_form(n: int) -> str:
+    itr = 1
+    exp_form = []
+    while n > 0:
+        if n % 10 > 0:
+            exp_form.append(n % 10 * itr)
+            n //= 10
+            itr *= 10
+        else:
+            n //= 10
+            itr *= 10
+
+    return ' + '.join(map(str, exp_form[::-1]))
+
+
+print(expanded_form(70304))
+
 
 
 
