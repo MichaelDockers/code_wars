@@ -26,5 +26,12 @@ def to_jaden_case(string: str) -> str:
     return ' '.join([x.capitalize() for x in string.split()])
 
 
+def last_digit(base: int, degree: int) -> int:
+    powed = 1
+    bin_degree = list(int(x) for x in format(degree, 'b')[::-1])
+    for key, item in enumerate(bin_degree):
+        powed = powed * (base ** ((2 ** key) * item))
+    return powed % 10
 
-print(to_jaden_case('How can mirrors be real if our eyes aren"t real'))
+
+print(last_digit(21, 13))
