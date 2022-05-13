@@ -60,18 +60,23 @@ def get_sum(a: int, b: int) -> int:
 
 
 def to_camel_case(text: str) -> str:
-    text_sep = ''.join({x if not x.isalpha() else '' for x in text})
+    text_seps = ''.join({x if not x.isalpha() else '' for x in text})
     if text not in ['']:
         if text[0].islower():
-            cameled_text = ''.join([x.capitalize() for x in text.split(text_sep)])
+            for text_sep in text_seps:
+                cameled_text = ''.join([x[0].upper() + x[1:] for x in text.split(text_sep)])
+                text = cameled_text
             return cameled_text[0].lower() + cameled_text[1:]
         else:
-            return ''.join([x.capitalize() for x in text.split(text_sep)])
+            for text_sep in text_seps:
+                cameled_text = ''.join([x[0].upper() + x[1:] for x in text.split(text_sep)])
+                text = cameled_text
+            return cameled_text
     else:
         return('')
 
 
-print(to_camel_case('asd+sdf+err'))
+print(to_camel_case('The-pippi_was_pippi'))
 
 
 
