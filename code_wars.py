@@ -59,4 +59,19 @@ def get_sum(a: int, b: int) -> int:
     return sum(x for x in range(min([a, b]), max([a, b]) + 1))
 
 
-print(get_sum(0, -1))
+def to_camel_case(text: str) -> str:
+    text_sep = ''.join({x if not x.isalpha() else '' for x in text})
+    if text not in ['']:
+        if text[0].islower():
+            cameled_text = ''.join([x.capitalize() for x in text.split(text_sep)])
+            return cameled_text[0].lower() + cameled_text[1:]
+        else:
+            return ''.join([x.capitalize() for x in text.split(text_sep)])
+    else:
+        return('')
+
+
+print(to_camel_case('asd+sdf+err'))
+
+
+
