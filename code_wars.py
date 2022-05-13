@@ -54,4 +54,9 @@ def square_number(num: int) -> bool:
     else:
         return False
 
-print(square_number(16))
+
+def get_sum(a: int, b: int) -> int:
+    return sum(x for x in range(min([a, b]), max([a, b]) + 1))
+
+
+print(get_sum(0, -1))
