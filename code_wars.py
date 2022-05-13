@@ -112,7 +112,12 @@ def expanded_form(n: int) -> str:
     return ' + '.join(map(str, exp_form[::-1]))
 
 
-print(expanded_form(70304))
+def generate_hashtag(text: str) -> str:
+    tag = '#' + ''.join([x.strip().capitalize() for x in text.split()])
+    return tag if 1 < len(tag) < 140 else False
+
+
+print(generate_hashtag('     HeLlo    World  '))
 
 
 
