@@ -1,3 +1,6 @@
+from re import L
+
+
 def spin_words(sentence: str) -> str:
     reversed_sentence = [x[::-1] if len(x) >= 5 else x for x in sentence.split()]
     return ' '.join(reversed_sentence)
@@ -114,8 +117,34 @@ def generate_hashtag(text: str) -> str:
     return tag if 1 < len(tag) < 140 else False
 
 
-print(generate_hashtag('     HeLlo    World  '))
+def compute_depth(n: int) -> int:
+    step = 0
+    nums = set()
+    while len(nums) < 10:
+        step += 1
+        mult_num = n * step
+        nums.update(list(str(mult_num)))
+    return step
 
 
+def list_squared(m: int, n: int) -> list:
+    right_list = []
+    for i in range(m, n + 1):
+        unique_devs = set()
+        devs = [(x, i // x) for x in range(1, int(i ** 0.5) + 1) if (i % x == 0)]
+        for item in devs:
+            unique_devs.update(item)
+        squares_sum = sum([x ** 2 for x in unique_devs])
+        if squares_sum ** 0.5 == int(squares_sum ** 0.5):
+            right_list.append([i, squares_sum])
+    return(right_list)
 
 
+def scramble(str1: str, str2: str) -> bool:
+    for item in set(str2):
+        if str2.count(item) > str1.count(item):
+            return False
+    return True
+
+
+print(scramble('scriptingjava', 'javascript'))
