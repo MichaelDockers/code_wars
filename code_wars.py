@@ -144,4 +144,17 @@ def scramble(str1: str, str2: str) -> bool:
     return True
 
 
-print(scramble('scriptingjava', 'javascript'))
+def linear_dl(n):
+    linear_lst = [1]
+    item = 0
+    #for item in range(int(n / 2) + 3):
+    for item in range(n + 1):
+        linear_lst.append(2 * linear_lst[item] + 1)
+        linear_lst.append(3 * linear_lst[item] + 1)
+        linear_lst = sorted(list(set(linear_lst)))
+        item += 1
+    print(linear_lst)
+    return linear_lst[n]
+
+
+print(linear_dl(20))
