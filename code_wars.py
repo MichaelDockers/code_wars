@@ -146,7 +146,7 @@ def scramble(str1: str, str2: str) -> bool:
 
 def dbl_linear(n):
     linear_lst = [1]
-    for item in range(n + 25):
+    for item in range(5 * n + 1):
         step = [2 * linear_lst[item] + 1, 3 * linear_lst[item] + 1]
         linear_lst.extend(step)
     return sorted(set(linear_lst))[n]
